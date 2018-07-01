@@ -1,0 +1,2 @@
+class Faciliy < ApplicationRecord
+end
