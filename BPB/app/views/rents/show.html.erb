@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rent.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @rent.address %>
+</p>
+
+<p>
+  <strong>Rooms:</strong>
+  <%= @rent.rooms %>
+</p>
+
+<p>
+  <strong>Bathrooms:</strong>
+  <%= @rent.bathrooms %>
+</p>
+
+<p>
+  <strong>Dbl price:</strong>
+  <%= @rent.dbl_price %>
+</p>
+
+<p>
+  <strong>Tpl price:</strong>
+  <%= @rent.tpl_price %>
+</p>
+
+<p>
+  <strong>Qpl price:</strong>
+  <%= @rent.qpl_price %>
+</p>
+
+<p>
+  <strong>Home:</strong>
+  <%= @rent.home %>
+</p>
+
+<p>
+  <strong>X:</strong>
+  <%= @rent.X %>
+</p>
+
+<p>
+  <strong>Y:</strong>
+  <%= @rent.Y %>
+</p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @rent.features %>
+</p>
+
+<p>
+  <strong>Tripadvisor:</strong>
+  <%= @rent.tripadvisor %>
+</p>
+
+
+<p>
+  <strong>Location:</strong>
+  <%= @rent.location.name %>
+</p>
+
+<%= link_to 'Edit', edit_rent_path(@rent) %> |
+<%= link_to 'Back', rents_path %>

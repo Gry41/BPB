@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180701215738) do
+ActiveRecord::Schema.define(version: 20180702015558) do
 
   create_table "facilities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "facilities_rents", id: false, force: :cascade do |t|
+    t.integer "facility_id", null: false
+    t.integer "rent_id", null: false
+    t.index ["facility_id"], name: "index_facilities_rents_on_facility_id"
+    t.index ["rent_id"], name: "index_facilities_rents_on_rent_id"
   end
 
   create_table "idiomas", force: :cascade do |t|
@@ -28,6 +35,31 @@ ActiveRecord::Schema.define(version: 20180701215738) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "rooms"
+    t.integer "bathrooms"
+    t.decimal "dbl_price"
+    t.decimal "tpl_price"
+    t.string "qpl_price"
+    t.string "home"
+    t.decimal "X"
+    t.decimal "Y"
+    t.string "features"
+    t.boolean "tripadvisor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "location_id"
+    t.index ["location_id"], name: "index_rents_on_location_id"
   end
 
   create_table "services", force: :cascade do |t|

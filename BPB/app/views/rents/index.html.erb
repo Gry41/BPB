@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Rooms</th>
+      <th>Bathrooms</th>
+      <th>Dbl price</th>
+      <th>Tpl price</th>
+      <th>Qpl price</th>
+      <th>Home</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Features</th>
+      <th>Tripadvisor</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rents.each do |rent| %>
+      <tr>
+        <td><%= rent.name %></td>
+        <td><%= rent.address %></td>
+        <td><%= rent.rooms %></td>
+        <td><%= rent.bathrooms %></td>
+        <td><%= rent.dbl_price %></td>
+        <td><%= rent.tpl_price %></td>
+        <td><%= rent.qpl_price %></td>
+        <td><%= rent.home %></td>
+        <td><%= rent.X %></td>
+        <td><%= rent.Y %></td>
+        <td><%= rent.features %></td>
+        <td><%= rent.tripadvisor %></td>
+        <td><%= rent.location.name %></td>
+        <td><%= link_to 'Show', rent %></td>
+        <td><%= link_to 'Edit', edit_rent_path(rent) %></td>
+        <td><%= link_to 'Destroy', rent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rent', new_rent_path %>

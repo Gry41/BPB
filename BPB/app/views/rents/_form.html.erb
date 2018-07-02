@@ -1,0 +1,87 @@
+<%= form_with(model: rent, local: true) do |form| %>
+  <% if rent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rent.errors.count, "error") %> prohibited this rent from being saved:</h2>
+
+      <ul>
+      <% rent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :rent_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :rent_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rooms %>
+    <%= form.number_field :rooms, id: :rent_rooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bathrooms %>
+    <%= form.number_field :bathrooms, id: :rent_bathrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dbl_price %>
+    <%= form.text_field :dbl_price, id: :rent_dbl_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tpl_price %>
+    <%= form.text_field :tpl_price, id: :rent_tpl_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qpl_price %>
+    <%= form.text_field :qpl_price, id: :rent_qpl_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home %>
+    <%= form.text_field :home, id: :rent_home %>
+  </div>
+
+  <div class="field">
+    <%= form.label :X %>
+    <%= form.text_field :X, id: :rent_X %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Y %>
+    <%= form.text_field :Y, id: :rent_Y %>
+  </div>
+
+  <div class="field">
+    <%= form.label :features %>
+    <%= form.text_field :features, id: :rent_features %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tripadvisor %>
+    <%= form.check_box :tripadvisor, id: :rent_tripadvisor %>
+  </div>
+  
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= collection_select(:rent, :location_id, Location.all, :id, :name, {:prompt => false}) %>
+  </div>
+
+  <div class="field">
+    <%=collection_check_boxes(:rent, :facility_ids, Facility.all, :id, :name)%> 
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <%= @rentpar %>
+  <% end %>
