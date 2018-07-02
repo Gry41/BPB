@@ -24,15 +24,20 @@ class RentsController < ApplicationController
   # POST /rents
   # POST /rents.json
   def create
+    puts( "facilitgkrj", params[:rent][:facility_ids])
     @rent = Rent.new(rent_params)
-    params[:facility_ids].each do |single|
-      @rent.facilites.push(Facility.find(single))
-      
-    end
+    
+    
     
     @rentpar = rent_params
     respond_to do |format|
       if @rent.save
+      params[:rent][:facility_ids]-= [""]
+      params[:rent][:facility_ids].each do |single|
+      @faciliy = Facility.find(single.to_i)
+      @rent.facilities_rents_relationships.create(faciliy = @facility) 
+    end     
+  
         format.html { redirect_to @rent, notice: 'Rent was successfully created.' }
         format.json { render :show, status: :created, location: @rent }
       else
@@ -74,6 +79,6 @@ class RentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rent_params
-      params.require(:rent).permit(:name, :address, :rooms, :bathrooms, :dbl_price, :tpl_price, :qpl_price, :home, :X, :Y, :features, :tripadvisor,:location_id, :facility_ids)
+      params.require(:rent).permit(:name, :address, :rooms, :bathrooms, :dbl_price, :tpl_price, :qpl_price, :home, :X, :Y, :features, :tripadvisor,:location_id)
     end
 end

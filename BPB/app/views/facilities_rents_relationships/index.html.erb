@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Facilities Rents Relationships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @facilities_rents_relationships.each do |facilities_rents_relationship| %>
+      <tr>
+        <td><%= link_to 'Show', facilities_rents_relationship %></td>
+        <td><%= link_to 'Edit', edit_facilities_rents_relationship_path(facilities_rents_relationship) %></td>
+        <td><%= link_to 'Destroy', facilities_rents_relationship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Facilities Rents Relationship', new_facilities_rents_relationship_path %>

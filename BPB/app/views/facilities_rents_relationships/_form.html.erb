@@ -1,0 +1,17 @@
+<%= form_with(model: facilities_rents_relationship, local: true) do |form| %>
+  <% if facilities_rents_relationship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(facilities_rents_relationship.errors.count, "error") %> prohibited this facilities_rents_relationship from being saved:</h2>
+
+      <ul>
+      <% facilities_rents_relationship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

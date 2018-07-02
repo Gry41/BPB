@@ -1,0 +1,1 @@
+json.partial! "facilities_rents_relationships/facilities_rents_relationship", facilities_rents_relationship: @facilities_rents_relationship
