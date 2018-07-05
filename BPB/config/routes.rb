@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :facilities_rents_relationships
   resources :locations
   resources :rents
   resources :services
