@@ -66,5 +66,12 @@
   <%= @rent.location.name %>
 </p>
 
+<%=collection_check_boxes(:rent, :facility_ids, Facility.all, :id, :name)%>
+
+<%=collection_check_boxes(:rent, :service_ids, Service.all, :id, :name)%>
+
+<%=collection_check_boxes(:rent, :language_ids, Language.all, :id, :name)%>
+
+
 <%= link_to 'Edit', edit_rent_path(@rent) %> |
 <%= link_to 'Back', rents_path %>

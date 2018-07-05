@@ -25,11 +25,8 @@ class RentsController < ApplicationController
   # POST /rents.json
   def create
     @rent = Rent.new(rent_params)
-    params[:facility_ids].each do |single|
-      @rent.facilites.push(Facility.find(single))
-      
-    end
-    
+    puts "facilitieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    puts @rent.facilities       
     @rentpar = rent_params
     respond_to do |format|
       if @rent.save
@@ -74,6 +71,6 @@ class RentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rent_params
-      params.require(:rent).permit(:name, :address, :rooms, :bathrooms, :dbl_price, :tpl_price, :qpl_price, :home, :X, :Y, :features, :tripadvisor,:location_id, :facility_ids)
+      params.require(:rent).permit(:name, :address, :rooms, :bathrooms, :dbl_price, :tpl_price, :qpl_price, :home, :X, :Y, :features, :tripadvisor,:location_id,:language_ids=>[],:facility_ids=>[],:service_ids=>[])
     end
 end

@@ -80,6 +80,16 @@
   <div class="field">
     <%=collection_check_boxes(:rent, :facility_ids, Facility.all, :id, :name)%> 
   </div>
+
+
+  <div class="field">
+    <%=collection_check_boxes(:rent, :language_ids, Language.all, :id, :name)%> 
+  </div>
+
+
+  <div class="field">
+    <%=collection_check_boxes(:rent, :service_ids, Service.all, :id, :name)%> 
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

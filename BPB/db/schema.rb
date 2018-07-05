@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180702015558) do
+ActiveRecord::Schema.define(version: 20180705180104) do
 
   create_table "facilities", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(version: 20180702015558) do
     t.index ["rent_id"], name: "index_facilities_rents_on_rent_id"
   end
 
+  create_table "facilities_rents_relationships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "idiomas", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -35,6 +40,13 @@ ActiveRecord::Schema.define(version: 20180702015558) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "languages_rents", id: false, force: :cascade do |t|
+    t.integer "language_id", null: false
+    t.integer "rent_id", null: false
+    t.index ["language_id"], name: "index_languages_rents_on_language_id"
+    t.index ["rent_id"], name: "index_languages_rents_on_rent_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -60,6 +72,13 @@ ActiveRecord::Schema.define(version: 20180702015558) do
     t.datetime "updated_at", null: false
     t.integer "location_id"
     t.index ["location_id"], name: "index_rents_on_location_id"
+  end
+
+  create_table "rents_services", id: false, force: :cascade do |t|
+    t.integer "service_id", null: false
+    t.integer "rent_id", null: false
+    t.index ["rent_id"], name: "index_rents_services_on_rent_id"
+    t.index ["service_id"], name: "index_rents_services_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|
