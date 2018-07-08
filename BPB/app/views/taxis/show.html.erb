@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Driver name:</strong>
+  <%= @taxi.driver_name %>
+</p>
+
+<p>
+  <strong>Places:</strong>
+  <%= @taxi.places %>
+</p>
+
+
+<p>
+  <strong>Type:</strong>
+  <%= @taxi.cartype.name %>
+</p>
+<div class="field">
+  <%=collection_check_boxes(:taxi, :language_ids, Language.all, :id, :name)%> 
+</div>
+
+<%= link_to 'Edit', edit_taxi_path(@taxi) %> |
+<%= link_to 'Back', taxis_path %>

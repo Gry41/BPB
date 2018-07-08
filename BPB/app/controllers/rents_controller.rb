@@ -25,8 +25,6 @@ class RentsController < ApplicationController
   # POST /rents.json
   def create
     @rent = Rent.new(rent_params)
-    puts "facilitieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-    puts @rent.facilities       
     @rentpar = rent_params
     respond_to do |format|
       if @rent.save

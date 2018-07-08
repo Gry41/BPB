@@ -1,0 +1,38 @@
+<%= form_with(model: taxi, local: true) do |form| %>
+  <% if taxi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(taxi.errors.count, "error") %> prohibited this taxi from being saved:</h2>
+
+      <ul>
+      <% taxi.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :driver_name %>
+    <%= form.text_field :driver_name, id: :taxi_driver_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :places %>
+    <%= form.number_field :places, id: :taxi_places %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cartype %>
+    <%= collection_select(:taxi, :cartype_id, Cartype.all, :id, :name, {:prompt => false}) %>
+  </div>
+
+  <div class="field">
+    <%=collection_check_boxes(:taxi, :language_ids, Language.all, :id, :name)%> 
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+
+<% end %>

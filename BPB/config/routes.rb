@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :tours
+  resources :taxis
+  resources :cartypes
   resources :locations
   resources :rents
   resources :services
