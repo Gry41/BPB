@@ -11,28 +11,50 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :driver_name %>
-    <%= form.text_field :driver_name, id: :taxi_driver_name %>
-  </div>
+
+  <div class="row">
+      <div class="col s1"></div>
+      <div class="col s5">
+        <div class="card">
+            <br>
+          <div class="container">
+              <h6>Introduzca los datos del taxi</h6>
 
   <div class="field">
-    <%= form.label :places %>
-    <%= form.number_field :places, id: :taxi_places %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cartype %>
-    <%= collection_select(:taxi, :cartype_id, Cartype.all, :id, :name, {:prompt => false}) %>
-  </div>
-
-  <div class="field">
-    <%=collection_check_boxes(:taxi, :language_ids, Language.all, :id, :name)%> 
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-
-
+      <%= form.label :driver_name %>
+      <%= form.text_field :driver_name, id: :taxi_driver_name %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :places %>
+      <%= form.text_field :places, id: :taxi_places %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :cartype %>
+      <%= collection_select(:taxi, :cartype_id, Cartype.all, :id, :name, {:prompt => false} ,class:"browser-default")%>
+    </div>
+    
+    <div class="field">
+        <%= form.label%>Idioma en el que se comunica: 
+          
+        <% i = 1 %>
+        <% Language.all.each do |single|%>
+        <% st = "taxi_language_ids_"+ i.to_s %>
+        <div class="col s6">
+        <input id=<%=st %> name="taxi[language_ids][]" type="checkbox" value=<%=i%> class="filled-in" />
+        <label for=<%=st%>><%= single.name%></label>
+        <% i = i+1 %> 
+        </div>
+       <% end%>
+      </div>
+  
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  
+          </div>
+        </div>
+      </div>
+  </div>    
 <% end %>

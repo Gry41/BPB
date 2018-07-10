@@ -37,7 +37,7 @@
           <% Language.all.each do |single|%>
           <% st = "rent_language_ids_"+ i.to_s %>
           <div class="col s6">
-          <input id=<%=st %> name="rent[language_ids][]" type="checkbox" value=<%=i%> />
+          <input id=<%=st %> name="rent[language_ids][]" type="checkbox" value=<%=i%> class="filled-in" />
           <label for=<%=st%>><%= single.name%></label>
           <% i = i+1 %> 
           </div>
@@ -86,7 +86,7 @@
           <% Service.all.each do |single|%>
           <% st = "rent_service_ids_"+ i.to_s %>
           <div class="col s12">
-          <input id=<%=st %> name="rent[service_ids][]" type="checkbox" value=<%=i%> />
+          <input id=<%=st %> name="rent[service_ids][]" type="checkbox" value=<%=i%> class="filled-in"/>
           <label for=<%=st%>><%= single.name%></label>
           <% i = i+1 %> 
           </div>
@@ -102,7 +102,7 @@
           <% Facility.all.each do |single|%>
           <% st = "rent_facility_ids_"+ i.to_s %>
           <div class="col s4">
-          <input id=<%=st %> name="rent[facility_ids][]" type="checkbox" value=<%=i%> />
+          <input id=<%=st %> name="rent[facility_ids][]" type="checkbox" value=<%=i%> class="filled-in" />
           <label for=<%=st%>><%= single.name%></label>
           <% i = i+1 %> 
           </div>
@@ -123,7 +123,7 @@
           </div>
         
           <div class="field">
-              <%= form.check_box :tripadvisor, id: :rent_tripadvisor %>
+              <%= form.check_box :tripadvisor, id: :rent_tripadvisor, class:"filled-in" %>
             <%= form.label :tripadvisor %>
             
           </div>
@@ -168,4 +168,4 @@
   <%= @rentpar %>
   <% end %>
 
-  
+  <style></style>
