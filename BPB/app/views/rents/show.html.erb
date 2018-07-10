@@ -1,7 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+
+<div class="container">
+
+    <div class="row">
+        <div class="col s8"></div>
+        
+        <div class="col s2"><%= link_to 'Destroy', @rent, method: :delete, data: { confirm: 'Are you sure?' }, class:"waves-effect waves-light btn" %>
+        </div>
+        <div class="col s2">
+            <a class="waves-effect waves-light btn" href=<%=edit_rent_path(@rent)%>>Edit</a>
+        </div>
+    </div>
+
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre dela casa:</strong>
   <%= @rent.name %>
 </p>
 
@@ -21,17 +34,17 @@
 </p>
 
 <p>
-  <strong>Dbl price:</strong>
+  <strong>Dbl:</strong>
   <%= @rent.dbl_price %>
 </p>
 
 <p>
-  <strong>Tpl price:</strong>
+  <strong>Tpl:</strong>
   <%= @rent.tpl_price %>
 </p>
 
 <p>
-  <strong>Qpl price:</strong>
+  <strong>Qpl:</strong>
   <%= @rent.qpl_price %>
 </p>
 
@@ -40,18 +53,9 @@
   <%= @rent.home %>
 </p>
 
-<p>
-  <strong>X:</strong>
-  <%= @rent.X %>
-</p>
 
 <p>
-  <strong>Y:</strong>
-  <%= @rent.Y %>
-</p>
-
-<p>
-  <strong>Features:</strong>
+  <strong>Caracteristicas:</strong>
   <%= @rent.features %>
 </p>
 
@@ -66,12 +70,16 @@
   <%= @rent.location.name %>
 </p>
 
-<%=collection_check_boxes(:rent, :facility_ids, Facility.all, :id, :name)%>
+<strong>Servicios que ofrecemos:</strong>
+<% @rent.services.each do |single|%>
+<div class="col s12">
+<strong>-</strong><%= single.name%>
+ </div>
+<% end%>
+<% @rent.facilities.each do |single|%>
+<div class="col s12">
+<strong>-</strong><%= single.name%>
+ </div>
+<% end%>
 
-<%=collection_check_boxes(:rent, :service_ids, Service.all, :id, :name)%>
-
-<%=collection_check_boxes(:rent, :language_ids, Language.all, :id, :name)%>
-
-
-<%= link_to 'Edit', edit_rent_path(@rent) %> |
-<%= link_to 'Back', rents_path %>
+</div>
