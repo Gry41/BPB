@@ -117,6 +117,7 @@
             <%= collection_select(:rent, :location_id, Location.all, :id, :name, {:prompt => false}, class: "browser-default") %>
           </div> 
         </div>
+        
         <div class="field">
           
             <%= form.text_field :features, id: :rent_features, placeholder:"Caracteristicas del alojamiento" %>

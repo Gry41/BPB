@@ -11,35 +11,69 @@
     </div>
   <% end %>
 
+  <div class="row">
+    <div class="col s1"></div>
+    <div class="col s5">
+      <div class="card">
+          <br>
+        <div class="container">
+            <h6>Introduzca los datos del tour</h6>
+
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :tour_name %>
+    <%= form.text_field :name, id: :tour_name , placeholder: "Nombre del tour"%>
   </div>
 
   <div class="field">
-    <%= form.label :facilities %>
-    <%= form.text_field :facilities, id: :tour_facilities %>
+      
+      <label>Idioma en el que se comunica: </label>
+       <br> 
+       <br>
+      <% i = 1 %>
+      <% Language.all.each do |single|%>
+      <% st = "tour_language_ids_"+ i.to_s %>
+      <div class="col s6">
+      <input id=<%=st %> name="tour[language_ids][]" type="checkbox" value=<%=i%> class="filled-in" />
+      <label for=<%=st%>><%= single.name%></label>
+      <% i = i+1 %> 
+      </div>
+     <% end%>
+    </div>
+
+  <div class="field">
+      
+      <%= form.text_field :facilities, id: :tour_facilities, placeholder: "Facilidades" %>
+  </div>
+  <h6>Incluye:</h6>
+  <div class="field">
+    
+    <%= form.text_field :description, id: :tour_description, placeholder: "Descripcion" %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :tour_description %>
+    <%= form.text_field :time, id: :tour_time, placeholder: "Tiempo" %>
   </div>
 
   <div class="field">
-    <%= form.label :time %>
-    <%= form.text_field :time, id: :tour_time %>
+    <%= form.text_field :price, id: :tour_price , placeholder: "Precio", style: "color:black;"%>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :tour_price %>
-  </div>
-
-  <div class="field">
-    <%=collection_check_boxes(:tour, :language_ids, Language.all, :id, :name)%> 
-  </div>
-  <div class="actions">
-    <%= form.submit %>
+</div>
+</div>
+  
+    </div>
+    <div class="row">
+        <div class="col s10"></div>
+        <div class="actions col s1 waves-effect waves-light btn">
+          <%= form.submit%>
+          <label> ddddddddddddddddddddddddddddddddddddddddddddddd</label>
+          
+        
+        </div>
+      </div>
   </div>
 <% end %>
+<style>
+  
+  
+  
+</style>
