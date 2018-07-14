@@ -85,27 +85,23 @@
   
     
     
-  
+  <h1>Rents</h1>
     <div class="row">
-      <div class="col s1"></div>
-      <div class="col s10">
-        <div class="row">
-            <strong>Our top destination</strong>
-            <br>
+      <div class="col s12">
         <Strong>Nuevo alojamiento</Strong>
         <%= link_to '+', new_rent_path,class:"btn-floating btn-large waves-effect waves-light" ,style:"font-size:25px;", id:"btn-circular" %>
+        
       </div>
-       <% i = 0%>
         <% @rents.each do |rent| %>
         <div class="col s3">
         <div class="card" style="height:90px;">
           
             <div class="row">
-              <div class="col s7">
+              <div class="col s8">
                   <div class="row">Name:</div>
                   <div class="row"><%= rent.name%></div>
               </div>
-              <div class="col s5">
+              <div class="col s4">
                 <div class="row">
                   <div class="col s6">
                       <%= link_to 'Show', rent, class:"waves-effect waves-light btn", id: "btn-small" %>      
@@ -121,7 +117,6 @@
         </div>
       </div>
         <% end %>
-      </div>
     </div>
     
   
@@ -130,7 +125,7 @@
     #btn-small {
       height: 15px;
       line-height: 15px;
-      font-size: 9px;
+      font-size: 10px;
       padding: 0 0.2rem;
       }
     #btn-circular{

@@ -4,8 +4,10 @@ class RentsController < ApplicationController
   # GET /rents
   # GET /rents.json
   def index
+    @rnt = Rent.new
     @rents = Rent.all
   end
+  
 
   # GET /rents/1
   # GET /rents/1.json
@@ -61,6 +63,25 @@ class RentsController < ApplicationController
     end
   end
 
+  def query
+  
+    puts params
+    
+    @rents = Rent.all
+    rnt = params[:rnt]
+    if rnt[:location_id]!= ""
+      puts '--------------------------------'
+      @rents = @rents.where(location_id: rnt[:location_id])
+    end
+    strbath = "bathrooms >= "+ rnt[:bathrooms]
+    @rents = @rents.where(strbath)
+    stroom = "rooms >= "+ rnt[:rooms]
+    @rents = @rents.where(stroom)  
+    stprice = "dbl_price <= "+ rnt[:dbl_price]
+    @rents = @rents.where(stprice)                                   
+    @rnt = Rent.new
+    render 'query.html.erb'
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rent
